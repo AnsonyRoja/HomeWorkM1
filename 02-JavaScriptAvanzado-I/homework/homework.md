@@ -86,7 +86,7 @@ console.log(pm); // Franco
 "$" + 4 + 5 // $45
 "4" - 2 // 2
 "4px" - 2 // NaN
-7 / 0 // infinity es un estudio matematico. que definio eso 
+7 / 0 // infinity
 {}[0] // undefined ya que no tienen nada  el objeto que esta definido junto al arreglo.
 parseInt("09") // 9 
 5 && 2 // 2
