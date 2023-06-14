@@ -5,9 +5,9 @@ const {
     BinarySearchTree
 } = require('./DS.js')
 
-// Implementar la función countArray: a partir de un array en el cual cada posición puede ser un único
-// número u otro array anidado de números, determinar la suma de todos los números contenidos en el array.
-// El array será recibido por parámetro.
+// Implementar la función countArray: a partir de un array en el cual cada posición puede ser
+ // un único número u otro array anidado de números, determinar la suma de todos los números
+ // contenidos en el array. El array será recibido por parámetro.
 // Ejemplo:
 //    const array = [1, [2, [3,4]], [5,6], 7];
 //    countArray(array); --> Debería devolver 28 (1 + 2 + 3 + 4 + 5 + 6 + 7)
@@ -16,9 +16,26 @@ const {
 
 var countArray = function(array) {
     // Tu código aca:
-    
-}
 
+        let suma = 0;
+
+        for(let i = 0 ; i < array.length; i++){
+
+            if(Array.isArray(array[i])){
+
+                    suma += countArray(array[i]);
+            }else{
+                    suma += array[i];
+            }   
+
+        }
+
+    
+   
+        return suma;
+
+}
+countArray([[1, [2, [3,4]], [5,6], 7]])
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
 // cualquier tipo de dato, determinar la cantidad de propiedades de objetos en cualquier nivel, ya sea el inicial
@@ -37,10 +54,55 @@ var countArray = function(array) {
 // dentro de a tenemos 3 propiedades mas, luego a3 tiene otras 3 y por ultimo c tiene una extra.
 // Propiedades: a, a1, a2, a3, f, a, c, o, b, c --> 10 en total
 
+
+
+
 var countProps = function(obj) {
     // Tu código aca:
 
+ let cont = 0;
+
+        for(i in obj){
+
+
+                cont++;
+                
+            
+                if(Array.isArray(obj[i])){
+
+                   for(let v = 0; v < obj[i].length;v++){
+
+                                if(obj[i].hasOwnProperty(obj[i][v])){
+
+                                   cont++;
+                                }
+
+                   }
+
+                }
+
+                for(o in obj[i]){
+                     
+                    cont++;
+                }
+
+        }
+
+return cont;
 }
+let objeto = {
+    a: {
+      a1: 10,
+      a2: 'Franco',
+      a3: {f: 'r', a: 'n', c: {o: true}},
+      a4:5,
+    },
+    b: 2,
+    c: [1, {a: 1}, 'Franco'],
+    d:[2,{d:3}],
+  };
+
+console.log(countProps(objeto));
 
 
 // Implementar el método changeNotNumbers dentro del prototype de LinkedList que deberá cambiar
@@ -53,6 +115,8 @@ var countProps = function(obj) {
 
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
+
+
 
 }
 
@@ -67,6 +131,8 @@ LinkedList.prototype.changeNotNumbers = function(){
 
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
+
+    
 
 }
 
